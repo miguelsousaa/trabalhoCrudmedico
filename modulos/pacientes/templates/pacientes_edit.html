@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+            <div>
+                {{msg}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <fieldset>
+        <form action="/pacientes/edit-save" method="post">
+            <div>
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome">
+            </div>
+            <div>
+                <label for="idade">Idade: </label>
+                <input type="number" name="idade" id="idade">
+            </div>
+            <input type="hidden" name="id_paciente" id="id_paciente" value="{{dados.id_paciente}}">
+            <button type="submit">Salvar</button>
+        </form>
+    </fieldset>
+
+{% endblock %}

@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    color: black;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    background-color: green;
+}
+
+nav {
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+    font-size: larger;
+}
+
+main {
+    height: calc(100vh - 5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.adicionar {
+    background-color: green;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+main div a {
+    text-decoration: none;
+    color: white;
+}
+
+table, td, th, tr {
+    border: 1px solid green;
+    border-collapse: collapse;
+    padding: 1rem;
+}
+
+td a {
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+}
+
+fieldset {
+    border-radius: 5px;
+    background-color: green;
+    margin: 1rem;
+    border: 1px solid black;
+    padding: 1rem;
+    width: 20rem;
+}
+
+fieldset div {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+}
+
+fieldset label {
+    color: white;
+}
+
+fieldset input, select, textarea{
+    padding: 0.5rem;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+fieldset button {
+    border: 1px outset green;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: large;
+    font-weight: 500;
+    color: black;
+}

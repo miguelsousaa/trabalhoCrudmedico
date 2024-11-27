@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+            <div>
+                {{msg}}
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    <div class="adicionar">
+        <a href="/pacientes/add">+Adicionar</a>
+    </div>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Editar</th>
+            <th>Remover</th>
+        </tr>
+        {% for paciente in dados %}
+        <tr>
+            <td>{{paciente.nome}}</td>
+            <td>{{paciente.idade}}</td>
+            <td><a href="/pacientes/edit/{{paciente.id_paciente}}">[E]</a></td>
+            <td><a href="/pacientes/remove/{{paciente.id_paciente}}">[X]</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

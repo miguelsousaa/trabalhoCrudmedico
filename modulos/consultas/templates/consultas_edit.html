@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+            <div>
+                {{msg}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <fieldset>
+        <form action="/consultas/edit-save" method="post">
+            <div>
+                <label for="data">Data: </label>
+                <input type="date" name="data" id="data">
+            </div>
+            <div>
+                <label for="observacoes">Observações: </label>
+                <textarea name="observacoes" id="observacoes"></textarea>
+            </div>
+            <div>
+                <label for="paciente">Paciente: </label>
+                <select name="id_paciente" id="paciente">
+                    <option value=""></option>
+                    {% for p in pacientes %}
+                    <option value="{{p.id_paciente}}">{{p.nome}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <input type="hidden" name="id_consulta" id="id_consulta" value="{{dados.id_consulta}}">
+            <button type="submit">Salvar</button>
+        </form>
+    </fieldset>
+
+{% endblock %}

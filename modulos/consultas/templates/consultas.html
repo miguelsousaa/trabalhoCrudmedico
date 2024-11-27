@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+            <div>
+                {{msg}}
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    <div class="adicionar">
+        <a href="/consultas/add">+Adicionar</a>
+    </div>
+    <table>
+        <tr>
+            <th>Data</th>
+            <th>Observações</th>
+            <th>Paciente</th>
+            <th>Editar</th>
+            <th>Remover</th>
+        </tr>
+        {% for consulta in dados %}
+        <tr>
+            <td>{{consulta.data}}</td>
+            <td>{{consulta.observacoes}}</td>
+            <td>{{consulta.paciente.nome}}</td>
+            <td><a href="/consultas/edit/{{consulta.id_consulta}}">[E]</a></td>
+            <td><a href="/consultas/remove/{{consulta.id_consulta}}">[X]</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
